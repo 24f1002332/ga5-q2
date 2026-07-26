@@ -11,7 +11,7 @@ class RequestData(BaseModel):
     spec: str
 
 @app.post("/")
-@app.post("/prorate")
+@app.post("/prorate") 
 def prorate(data: RequestData):
     delta = data.new_price - data.old_price
 
@@ -21,3 +21,4 @@ def prorate(data: RequestData):
         charge = delta * (data.days_remaining / data.days_in_actual_month)
 
     return {"charge": round(charge, 2)}
+ 
