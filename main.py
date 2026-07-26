@@ -10,6 +10,7 @@ class RequestData(BaseModel):
     days_in_actual_month: int
     spec: str
 
+@app.post("/")
 @app.post("/prorate")
 def prorate(data: RequestData):
     delta = data.new_price - data.old_price
